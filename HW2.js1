@@ -1,0 +1,153 @@
+//Part A: JavaScript Objects
+//task1: Create a simple object
+let person = {
+  name: "Ploni",
+  age: 27,
+  isStudent: true,
+};
+console.log(person);
+
+//task2: Acsses object properties
+console.log(person.name);
+console.log(person.age);
+console.log(person["isStudent"]);
+
+//task3: Update properties
+person.age = 29;
+person.hobby = "Sports";
+
+console.log(person.age);
+console.log(person.hobby);
+console.log(person);
+
+//task4: Add and update Multiple properties
+let movie = {
+  title: "The Last Song",
+  genre: "Drama",
+};
+console.log(movie);
+
+movie.releaseYear = 2016;
+movie.isPopular = true;
+movie.genre = "Comedy";
+
+console.log(movie);
+
+//task5: Loop through object properties
+let car = {
+  make: "Toyota",
+  model: "Corolla",
+  year: 2021,
+  color: "Blue",
+};
+for (let key in car) {
+  console.log(`${key}: ${car[key]}`);
+}
+
+//task6: Combine objects
+let firstPerson = {
+  name: "Omer",
+  age: 17,
+};
+let secondPerson = {
+  name: "Tal",
+  age: 20,
+};
+let combinedPeople = combinePeople(firstPerson, secondPerson);
+function combinePeople(obj1, obj2) {
+  let combined = {
+    "first person's name": obj1.name,
+    "first person's age": obj1.age,
+    "second person's name": obj2.name,
+    "second person's age": obj2.age,
+  };
+  return combined;
+}
+console.log(combinedPeople);
+
+//task7: Count object properties
+function countProperties(obj) {
+  return Object.keys(obj).length;
+}
+console.log(countProperties(movie));
+console.log(countProperties(person));
+
+//task8: Delete a property
+delete person.isStudent;
+console.log(person);
+
+//task9: Check property existence
+function hasProperty(obj, prop) {
+  return prop in obj;
+}
+console.log(hasProperty(car, "make"));
+console.log(hasProperty(car, "owner"));
+
+//task10: Edit an object using a function
+function updatePerson(person, key, value) {
+  person[key] = value;
+}
+updatePerson(person, "age", 30);
+updatePerson(person, "city", "Hadera");
+console.log(person);
+
+//Part B: JavaScript Arrays
+//task1: Create an array
+let fruits = ["Banana", "Apple", "Orange", "Kiwi", "Plum"];
+console.log(fruits);
+
+//task2: Access array elements
+console.log(fruits[0]);
+console.log(fruits[fruits.length - 1]);
+console.log(fruits[2]);
+
+//task3: Add and remove elements
+fruits.push("Pear");
+console.log(fruits);
+fruits.unshift("Strawberry");
+console.log(fruits);
+fruits.pop();
+console.log(fruits);
+
+//task4: Iterate over an array
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+
+//task5: Find the length of an array
+console.log(fruits.length);
+
+//task6: Check for an element
+function isInArray(array, element) {
+  return array.includes(element);
+}
+console.log(isInArray(fruits, "Kiwi"));
+console.log(isInArray(fruits, "Pineapple"));
+
+//task7: Sort in array
+fruits.sort();
+console.log(fruits);
+
+//task8: Reverse an array
+fruits.reverse();
+console.log(fruits);
+
+//task9: Filter array elements
+let numbers = [10, 25, 32, 47, 58, 63, 74, 89, 90, 101];
+console.log(numbers);
+
+function filterEvenNumbers(array) {
+  let evenNumbers = array.filter(function (num) {
+    return num % 2 === 0;
+  });
+  console.log(evenNumbers);
+}
+filterEvenNumbers(numbers);
+
+//task10: Combine two arrays
+let vegetables = ["Carrot", "Broccoli", "Spinach"];
+let groceries = fruits.concat(vegetables);
+console.log(groceries);
